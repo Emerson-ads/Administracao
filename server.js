@@ -1,6 +1,6 @@
 const express = require('express')
 const nunjucks = require('nunjucks')
-
+const fiado = require('./controller/fiado')
 
 const server = express()
 
@@ -16,16 +16,22 @@ nunjucks.configure("views", {
     noCache: true
 })
 
-
+//redirecionar
 server.get('/', (req,res)=>{
-    return res.redirect("/instructors")
+    return res.redirect("/cliente")
 })
 
-server.get('/instructors',function(req, res){
-    return res.render("instructors/index")
+//página index
+server.get('/cliente',function(req, res){
+    return res.render("cliente/index")
 })
 
+//pagina create get
+server.get('cliente/create',fiado.create)
 
+
+//pagina create post
+server.post('/cliente',fiado.post)
 server.listen(5000, function(){
     console.log('server is running')
 })
