@@ -11,16 +11,16 @@
                 </tr>
             </thead>
             <tbody>
-                {% for instructors in instructor%}
+                {% for instructors in cliente%}
                     <tr>
                         <td>
-                            <span style="background-image: url({{instructors.avatar_url}})"></span>
+                            <span style="background-image: url({{instructors.avatar}})"></span>
                             {{instructors.name}}
                         </td>
                         <td> 
-                          <span>{{instructors.services}}</span>
+                          <span>{{instructors.valor}}</span>
                         </td>
-                        <td> <a href="/instructors/{{instructors.id}}">Ver</td>
+                        <td> <a href="/cliente/{{instructors.id}}">Ver</td>
 
                     </tr>
                 {%endfor%}

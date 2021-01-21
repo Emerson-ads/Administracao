@@ -22,13 +22,16 @@ server.get('/', (req,res)=>{
 })
 
 //página index
-server.get('/cliente',function(req, res){
-    return res.render("cliente/index")
-})
+server.get('/cliente',fiado.index)
 
 //pagina create get
-server.get('cliente/create',fiado.create)
+server.get('/cliente/create',(req,res)=>{
+    return res.render("cliente/create")
+})
 
+//pagina show
+
+server.get('/cliente/:id',fiado.show)
 
 //pagina create post
 server.post('/cliente',fiado.post)

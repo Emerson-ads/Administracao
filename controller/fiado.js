@@ -6,6 +6,28 @@ exports.create = (req,res)=>{
     return res.render("cliente/create")
 }
 
+// index
+exports.index = function(req, res){
+    return res.render("cliente/index", {cliente: data.fiado})
+}
+
+//show
+
+exports.show = function(req,res){
+    const {id} = req.params
+
+    const foundCliente = data.fiado.find(function(cliente){
+        return cliente.id == id
+    })
+
+    if(!foundCliente) return res.send("cliente não encontrado")
+
+    const cliente = {
+        ...foundCliente
+    }
+
+    return res.render("cliente/show", {cliente})
+}
 
 // create
 exports.post = (req,res)=>{
@@ -18,14 +40,19 @@ exports.post = (req,res)=>{
         }
     }
 
-    let {name, valor} = req.body
+    let {name, valor, avatar} = req.body
 
     const id = Number(data.fiado.length + 1)
     
+    const constructorFiado = {
+        valor: Number(valor)
+    }
+
     data.fiado.push({
+        ...constructorFiado,
         id,
         name,
-        valor
+        avatar
     })
 
     fs.writeFile("data.json", JSON.stringify(data,null,2),(err)=>{

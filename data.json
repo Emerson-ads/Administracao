@@ -1,3 +1,20 @@
 {
-    "fiado":[]
+  "fiado": [
+    {
+      "id": 1,
+      "name": "Emerson",
+      "valor": "290"
+    },
+    {
+      "valor": 560,
+      "id": 2,
+      "name": "Everton"
+    },
+    {
+      "valor": 100,
+      "id": 3,
+      "name": "Emerson",
+      "avatar": "https://scontent.fcgh37-1.fna.fbcdn.net/v/t1.0-9/133357739_3599838816776200_4566331125254292167_n.jpg?_nc_cat=111&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeHRZQqOf_DcEnVJETjgtgy30_ykyyly6tbT_KTLKXLq1ux6mzXG-ngLo7ktexw86Fx_-rPWYdTxHl0fvw9e-d8V&_nc_ohc=SfTFqIVESucAX9EfADQ&_nc_ht=scontent.fcgh37-1.fna&oh=814357e410a2fc88e47d195b36794680&oe=60316373"
+    }
+  ]
 }
