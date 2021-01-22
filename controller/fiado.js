@@ -80,3 +80,31 @@ exports.edit = (req,res)=>{
 
     return res.render('cliente/edit', { cliente })
 }
+
+//put
+exports.put = (req,res)=>{
+    const {id} = req.body
+    let index = 0
+
+    const foundCliente = data.fiado.find((cliente,foundIndex)=>{
+        if(id == cliente.id){
+            index = foundIndex
+            return true
+        }
+    })
+
+    if(!foundCliente) return res.send('cliente não encontrado')
+
+    const cliente = {
+        ...foundCliente,
+        id: Number(req.body.id)
+    }
+
+    data.fiado[index] = cliente
+
+    fs.writeFile("data.json",JSON.stringify(data,null,2),(err)=>{
+        if(err) return res.send("erro ao escrever arquivo")
+
+        return res.redirect(`/cliente/${id}`)
+    })
+}
