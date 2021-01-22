@@ -38,3 +38,6 @@ server.post('/cliente',fiado.post)
 server.listen(5000, function(){
     console.log('server is running')
 })
+
+//edit
+server.get('/cliente/:id/edit',fiado.edit)

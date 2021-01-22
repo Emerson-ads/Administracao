@@ -62,3 +62,21 @@ exports.post = (req,res)=>{
     })
 
 }
+
+//edit
+
+exports.edit = (req,res)=>{
+    const {id}  = req.params
+
+    const foundCliente = data.fiado.find((cliente)=>{
+        return cliente.id == id
+    })
+
+    if (!foundCliente)return res.send('cliente não encontrado')
+
+    const cliente = {
+        ...foundCliente
+    }
+
+    return res.render('cliente/edit', { cliente })
+}
